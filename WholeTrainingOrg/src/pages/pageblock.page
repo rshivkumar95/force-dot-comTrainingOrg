@@ -1,0 +1,34 @@
+<apex:page sidebar="false">
+<script type="text/javascript">
+     // Your JavaScript code here
+     function msg()
+     {
+        var num1=parseInt(document.getElementById("num1").value);
+        var num2=parseInt(document.getElementById("num2").value);
+        alert(num1+num2);
+     }
+  </script>
+
+
+     <apex:pageBlock title="This is My Page Block">
+             <apex:pageBlockSection title="And This this the section">
+                                 I am now on the third floor
+             </apex:pageBlockSection>
+             <apex:pageBlockSection title="And This this the section">
+                                 I am now on the third floor
+             </apex:pageBlockSection>
+     </apex:pageBlock>
+     <apex:pageBlock title="This is My second Page Block">
+             <apex:pageBlockSection title="And This this the section">
+                                 I am now on the third floor
+                                <br/>First Number: <input type="number" id="num1"/> <br/>
+                                Second Number: <input type="number" id="num2"/> <br/>
+                                 <button onclick="msg()">Addition</button>
+                                 
+                                 <img src="https://s.ndtvimg.com/images/content/2015/mar/806/ms-dhoni-2503-wc2015.jpg"/>
+             </apex:pageBlockSection>
+             
+     </apex:pageBlock>
+     
+    
+</apex:page>

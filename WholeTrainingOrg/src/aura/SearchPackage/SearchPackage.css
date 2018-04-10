@@ -1,0 +1,15 @@
+.THIS .slds-form-element__control{
+    
+    width:100%;
+}
+
+.THIS .slds-form-element
+{
+    width:100%;
+}
+
+.THIS .slds-input
+{
+    padding:5px;
+    font-size:20px;
+}

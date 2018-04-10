@@ -1,0 +1,4 @@
+<apex:component >
+     <c:campingHeader ></c:campingHeader>
+    <c:campingList ></c:campingList>
+</apex:component>

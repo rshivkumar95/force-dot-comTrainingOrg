@@ -1,0 +1,8 @@
+<apex:page standardController="Account" showHeader="false" sidebar="false">
+  The Account Name is {!Account.Name}<br/>
+  The Account Phone is {!Account.Phone}<br/>
+  
+  Created By {!Account.CreatedBy.Name}
+  
+  <apex:detail relatedList="false"/>
+</apex:page>

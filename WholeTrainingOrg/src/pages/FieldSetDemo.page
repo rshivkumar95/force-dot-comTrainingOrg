@@ -1,0 +1,8 @@
+<apex:page standardController="Contact">
+    <apex:form >
+        <apex:repeat value="{!$ObjectType.Contact.FieldSets.BasicContactFields}" var="f">
+            <apex:outputText value="{!f}"></apex:outputText>&nbsp; : &nbsp; 
+            <apex:inputField value="{!Contact[f]}"/><br/>
+        </apex:repeat>   
+    </apex:form>
+</apex:page>

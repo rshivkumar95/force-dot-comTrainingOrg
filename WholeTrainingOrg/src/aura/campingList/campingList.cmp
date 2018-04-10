@@ -1,0 +1,37 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="items" type="Camping_Item__c[]"/> 
+    <aura:attribute name="newItem" type="Camping_Item__c" default="0"/>
+    <ol>
+         <li> Bug Spray</li><li> Bear Repellant</li> <li>Goat Food</li>
+         
+    </ol>
+    <form class="slds-form--stacked"> 
+        <lightning:input aura:id="itemform" label="Item Name"
+                             name="itemname"
+                             value="{!v.newitem.Name}"
+                             required="true"/> 
+            <lightning:input type="itemform" aura:id="itemform" label="Amount"
+                             name="itemprice"
+                             min="0.1"
+                             formatter="currency"
+                             step="0.01"
+                             value="{!v.newitem.Price__c}"
+                             messageWhenRangeUnderflow="Enter an amount that's at least $0.10."/>
+            <lightning:input aura:id="itemform" label="Quantity"
+                             name="itemquantity"
+                             value="{!v.newitem.Quantity__c}"
+							 min="1"
+							 type="number"
+							 required="true"
+							 messageWhenRangeUnderflow="Enter minimum 1 Quantity"/>
+                             />
+            <lightning:input type="checkbox" aura:id="itemform" label="Packed?"  
+                             name="packed"
+							 class="slds-checkbox"
+                             checked="{!v.newitem.Packed__c}"/>
+            <lightning:button label="Create Camping Item" 
+                              class="slds-m-top--medium"
+                              variant="brand"
+                              onclick="{!c.clickCreateItem}"/>
+    </form>
+</aura:component>

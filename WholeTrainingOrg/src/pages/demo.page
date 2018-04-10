@@ -1,0 +1,3 @@
+<apex:page standardController="Classroom__c" renderAs="pdf">
+    <apex:include pageName="classroomnew" rendered="true" id="a007F000004T9sX" />
+</apex:page>

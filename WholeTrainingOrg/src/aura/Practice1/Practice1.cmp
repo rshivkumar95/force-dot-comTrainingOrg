@@ -1,0 +1,75 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+  
+    <aura:attribute name="enteredText" type="String"/>
+    <!--<ltng:require styles="{!join(',',
+    $Resource.first ,
+    $Resource.second )}"/> -->
+    
+    <ltng:require scripts="{!$Resource.sweetalert2+'/sweetalert2.all.js'}"
+                  styles="{!$Resource.sweetalert2+'/sweetalert2.min.css'}"
+                   />
+    
+    <h3>{!Version}</h3>
+    <a onclick="{!c.afterClick}">Click Here</a>
+    
+    
+    
+    
+    <!-- <p class="first">First</p>
+    <p class="second">Second</p> -->
+    
+    <div aura:id="ddId" class="slds-dropdown-trigger slds-dropdown-trigger_click " onclick="{!c.toggleVisibility}" onblur="{!c.toggleVisibility}">
+  <button class="slds-button slds-button_icon slds-button_icon-border-filled" aria-haspopup="true" title="Show More" >
+    x
+    <span class="slds-assistive-text">Show More</span>
+  </button>
+  <div aura:id="drop" class="slds-dropdown slds-dropdown_left">
+    <ul class="slds-dropdown__list" role="menu">
+      <li class="slds-dropdown__item" role="presentation">
+        <a href="javascript:void(0);" role="menuitem" tabindex="0">
+          <span class="slds-truncate" title="Menu Item One">Menu Item One</span>
+        </a>
+      </li>
+      <li class="slds-dropdown__item" role="presentation">
+        <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+          <span class="slds-truncate" title="Menu Item Two">Menu Item Two</span>
+        </a>
+      </li>
+      <li class="slds-dropdown__item" role="presentation">
+        <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+          <span class="slds-truncate" title="Menu Item Three">Menu Item Three</span>
+        </a>
+      </li>
+      <li class="slds-has-divider_top-space" role="separator"></li>
+      <li class="slds-dropdown__item" role="presentation">
+        <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+          <span class="slds-truncate" title="Menu Item Four">Menu Item Four</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+    
+    
+    <!-- -->
+    <div class="slds-align_absolute-center" style="width:50%;">
+        
+		  <form>
+              <div class="slds-text-heading_large slds-hyphenate second" style="margin:20px;">Simple Input Element</div>
+                <div class="slds-form slds-form_stacked">
+                     <div class="slds-form-element">
+                        
+                        <div class="slds-form-element__control">
+                           <ui:inputText label="Enter Name"  aura:id="id-name" class="slds-input"  value="{!v.enteredText}" updateOn="keyup"/>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top:20px;">
+              		<div class="slds-text-heading_medium slds-hyphenate" >Your Name is :: {!v.enteredText}</div>
+              	</div>
+              	
+                
+            </form>
+	</div>
+    
+</aura:component>

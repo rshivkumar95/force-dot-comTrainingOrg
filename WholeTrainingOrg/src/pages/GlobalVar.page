@@ -1,0 +1,16 @@
+<apex:page >
+ Hello {!$User.FirstName} you are a {!$Profile.Name}
+ 
+ <br/><br/>
+ And Your Organization is - {!$Organization.Name}
+ <br/>
+ Todays Date is {!Today()}
+ <br /> Next Week Date is {!Today()+7}
+ 
+ <br/>
+ {!IF(Contains('salesforce.com','force.com'),'yes','no')}
+ 
+ <br/>
+ 
+ {!IF(Day(Today())>10,'AFTER 10','BEFORE 10')}
+</apex:page>

@@ -1,0 +1,68 @@
+<aura:component controller="ToDoController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<!-- <lightning:icon iconName="utility:error" variant="error"/> -->
+    
+    <ltng:require scripts="{!$Resource.sweetalert2+'/sweetalert2.all.js'}"
+                  styles="{!$Resource.sweetalert2+'/sweetalert2.min.css'}"
+                   />
+    
+    <aura:attribute name="ToDoList" type="List" />
+    <aura:attribute name="selectedID" type="String" />
+   <aura:handler name="init" value="{!this}" action="{!c.fetchToDo}"/> 
+    
+   
+    <!-- margin:0 auto;width:70%;padding:50px; -->
+	<div class="slds-grid slds-wrap slds-align_absolute-center">
+    <div style="" class="slds-col slds-large-size_8-of-12 slds-medium-size_8-of-12 ">
+    		
+        <div class="slds-text-heading_large slds-text-align_center">ToDo Application</div><br></br>
+        
+        <!-- NEW TODO FORM -->
+        <div class="slds-form-element" >
+          <div class="slds-form-element__control" style="font-size:25px;" onkeyup="{!c.buttonPress}">
+            <input type="text" aura:id="newTodo" id="input-unique-id" class="slds-input" placeholder="What To Do ?" style="padding:15px;font-size:25px;"/>
+          </div>
+        </div>
+        
+      <aura:iteration items="{!v.ToDoList}" var="todo" indexVar="ind"> 
+        
+                <!-- LIST OF TODO -->
+                <article class="slds-card">
+                  <div class="slds-card__header slds-grid">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                      <div class="demo-only">
+                          <div class="slds-form-element">
+                            <label class="slds-checkbox_toggle slds-grid">  
+                                <aura:if isTrue="{!todo.Status__c=='Completed'}">
+       									<input type="checkbox" name="checkbox" id="{!todo.Id}" aria-describedby="toggle-desc"  checked="true" onchange="{!c.SetId}"/>
+   								</aura:if>
+                                <aura:if isTrue="{!todo.Status__c=='Pending'}">
+       									<input type="checkbox" name="checkbox" id="{!todo.Id}" aria-describedby="toggle-desc"  checked="false" onchange="{!c.SetId}"/>
+   								</aura:if>
+                              
+                              <span id="toggle-desc" class="slds-checkbox_faux_container" aria-live="assertive">
+                                <span class="slds-checkbox_faux"></span>
+                                <span class="slds-checkbox_on">Completed</span>
+                                <span class="slds-checkbox_off">Pending</span>
+                              </span>
+                            </label>
+                          </div>
+                      </div>&nbsp;
+                      <div class="slds-media__body slds-text-align_center">
+                        <h2>                 
+                            <span class="slds-text-heading_medium slds-text-heading_large slds-text-heading_small">{!todo.title__c}</span>
+                        </h2>
+                      </div>
+                    </header>
+                    <div class="slds-no-flex">
+                      <button class="slds-button slds-button_neutral" id="{!todo.Id}" onclick="{!c.RemoveId}">X</button>
+                    </div>
+                  </div>         
+                </article>
+                <!-- LIST OF TODO END -->
+            
+       </aura:iteration> 
+        
+    
+    </div>
+  </div>
+</aura:component>

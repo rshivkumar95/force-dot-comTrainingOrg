@@ -1,0 +1,29 @@
+<apex:page standardController="Contact" >
+<head>
+        <style>
+        
+        label{
+        
+                color:{!IF(Contact.salutation=='Mr.','red','blue')}
+        
+        }
+        
+        </style>
+
+</head>
+  <apex:form >
+      <apex:pageBlock title="Contacts Fields Come here">
+          
+          <apex:pageBlockSection title="Contact Fields" columns="1">
+                  <apex:inputField value="{!Contact.Name}"/>
+                  <apex:outputField value="{!Contact.Phone}" label="Phone #"/>
+                  <apex:inputField value="{!Contact.Email}" label="{!Contact.FirstName} +s Email" required="true"/>
+          </apex:pageBlockSection>
+          
+          <apex:pageBlockButtons >
+              <apex:commandButton action="{!Save}" value="Save me please"/>
+          </apex:pageBlockButtons>
+      
+      </apex:pageBlock>
+  </apex:form>
+</apex:page>

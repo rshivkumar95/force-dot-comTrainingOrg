@@ -1,0 +1,72 @@
+<aura:component controller="BookSearchController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	
+    <!-- Attribute List which will be used in this component -->
+    <aura:handler name="init" value="{!this}" action="{!c.Set}"/>
+    <aura:attribute name="bookList" type="List" />
+    <aura:attribute name="keyword" type="String" />
+    <aura:attribute name="bookid" type="String" />
+    
+    <!-- Search Bar where we will type keyword -->
+    <div class="slds-align_absolute-center" style="width:80%;">     
+		  <form>
+              <div class="slds-text-heading_large slds-hyphenate" style="margin:20px;">Custom Search App</div>
+                <div class="slds-form slds-form_stacked">
+                     <div class="slds-form-element">
+                        
+                        <div class="slds-form-element__control">
+                           <ui:inputText label="Enter keyword"  aura:id="id-name" class="slds-input"  value="{!v.keyword}" keyup="{!c.Search}" updateOn="keyup"/>
+                        </div>
+                    </div>
+                </div>            
+            </form>
+	</div>
+    
+    
+    <div class="slds-grid slds-wrap">
+          <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12" style="border-right:1px solid gray;">
+            	<div style="margin-top:20px;">
+                    <!-- This is result of the searched keyword -->
+              		<table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                      <thead>
+                        <tr class="slds-text-title_caps">
+                          <th scope="col">
+                            <div class="slds-truncate" title="Book Name">Book Name</div>
+                          </th>
+                          <th scope="col">
+                            <div class="slds-truncate" title="Edition">Edition</div>
+                          </th>
+                          <th scope="col">
+                            <div class="slds-truncate" title="Price">Price</div>
+                          </th>                       
+                        </tr>
+                      </thead>
+                      <tbody>
+                          <aura:iteration items="{!v.bookList}" var="book" indexVar="ind">
+                           
+                               <tr data-index="{!ind}" onclick="{!c.Set}" data-pckid="{!book.Id}">
+                                      <td data-label="Book Name">
+                                          <a href="{!'?id='+book.Id}">
+                                        	<div class="slds-truncate" title="{!book.Book_Name__c}">{!book.Book_Name__c}</div>
+                                          </a>
+                                      </td>
+                                      <td data-label="Edition">
+                                        <div class="slds-truncate" title="{!book.Edition__c}">{!book.Edition__c}</div>
+                                      </td>
+                                      <td data-label="Price">
+                                        <div class="slds-truncate" title="{!book.Price__c}">{!book.Price__c}</div>
+                                      </td>                                
+                               </tr>
+                          
+						</aura:iteration>                              
+                      </tbody>
+                  </table>
+              	</div>
+          </div>
+          <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12">
+            <!-- Here we are showing details of the clicked record -->  
+            <div class="slds-text-heading_large slds-hyphenate" style="margin:20px;">Record Details</div>
+            <force:recordView recordId="{!v.bookid}" type="FULL"/>
+          </div>
+	</div>
+    
+</aura:component>

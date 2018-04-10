@@ -1,0 +1,10 @@
+<apex:page >
+  This is my first page
+  <p>
+     In Para
+  </p>
+  <br/> <h1>It Works</h1>
+  <input type="email" />
+  
+  <marquee>Girl seating beside me is yedi</marquee>
+</apex:page>

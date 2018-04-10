@@ -1,0 +1,20 @@
+<aura:component >
+     
+     First Component
+    
+    Your Language : {!$Locale.language}
+    
+    <br/>
+    <br/>
+    
+    Time Zome : {!$Locale.timezone}
+    
+    <br/>
+    <br/>
+    
+    <aura:attribute name="whoisthis" type="string" default="I am here to stay"></aura:attribute>
+    
+    
+    Hello {!v.whoisthis}
+	
+</aura:component>

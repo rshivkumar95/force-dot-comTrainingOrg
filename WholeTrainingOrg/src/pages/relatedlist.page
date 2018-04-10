@@ -1,0 +1,13 @@
+<apex:page standardController="Account" tabStyle="Lead">
+
+        <apex:pageBlock >
+                You are Viewing account {!Account.name}
+        </apex:pageBlock>
+        
+        <apex:relatedList list="Opportunities"/>
+        <apex:relatedList list="Contacts" />
+        
+        <apex:facet name="header">Title can be overwritten</apex:facet>
+        <apex:relatedList list="Cases" title="You can change title too"/>
+ 
+</apex:page>

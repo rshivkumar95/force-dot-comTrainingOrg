@@ -1,0 +1,22 @@
+<apex:page >
+  <head>
+  <style>
+      #zoom{
+        
+          width:10%;
+                  height:10%;
+      
+      }
+          #zoom:hover{
+                  
+                  width:30%;
+                  height:30%;
+          }
+          </style>
+  </head>
+  <body>
+  
+              <img id="zoom" src="http://warisanlighting.com/wp-content/uploads/parser/diwali-lamps-9.jpg" />
+  
+  </body>
+</apex:page>

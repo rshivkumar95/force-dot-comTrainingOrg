@@ -1,0 +1,13 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+	<ltng:require scripts="{!$Resource.sweetalert2+'/sweetalert2.all.js'}"
+                  styles="{!$Resource.sweetalert2+'/sweetalert2.min.css'}"
+                   />
+    
+    <button class="slds-button" onclick="{!c.sweetAlert}">Open SweetAlert</button>
+    
+    <a onclick="{!c.sweetAlert}">Click Here</a>
+    
+    
+
+    
+</aura:component>

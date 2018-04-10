@@ -1,0 +1,28 @@
+<apex:page standardController="Classroom__c">
+    
+  <script type="text/javascript"> 
+  
+  
+          function printWindow()
+          {
+                  window.print();
+          
+          }
+  
+  </script>  
+    
+        <apex:form >
+                <apex:pageBlock title="Classroom Details">
+                    <apex:pageBlockSection title="Account Details" columns="1">
+                        <apex:inputField value="{!Classroom__c.Capacity__c}" taborderhint="1"/>
+                        <apex:inputField value="{!Classroom__c.Rating__c}" taborderhint="2"/>
+                        <apex:inputField value="{!Classroom__c.Server_M_P_L__c}" taborderhint="3"/>
+                        <apex:inputField value="{!Classroom__c.Room_No__c}" taborderhint="4"/>
+                        <button onclick="printWindow();" >Print</button>
+                    </apex:pageBlockSection>     
+                </apex:pageBlock>
+        </apex:form>
+        
+       
+
+</apex:page>

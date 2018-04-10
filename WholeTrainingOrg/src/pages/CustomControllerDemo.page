@@ -1,0 +1,15 @@
+<apex:page controller="ClassroomController">
+  
+  <apex:pageBlock >
+  
+          <apex:pageBlockTable value="{!classs}" var="cls">
+          
+              <apex:column value="{!cls.name}" />
+              <apex:column value="{!cls.Address__c}" />
+              <apex:column value="{!cls.Room_No__c}" />
+              
+          </apex:pageBlockTable>
+  
+  </apex:pageBlock>
+  
+</apex:page>

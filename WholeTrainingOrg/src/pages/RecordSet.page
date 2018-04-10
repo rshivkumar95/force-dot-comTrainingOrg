@@ -1,0 +1,22 @@
+<apex:page standardController="Account" recordSetVar="Acc" tabStyle="Account" sidebar="false" >
+    <apex:form >
+        <apex:pageBlock title="View for Accounts">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!Save}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable value="{!Acc}" var="a">
+                    <apex:column value="{!a.name}" />
+                    <apex:column value="{!a.industry}" />
+                    <apex:column value="{!a.phone}" />
+                    <apex:column >
+                        <apex:inputField label="Industry" value="{!a.industry}" required="true" />
+                    </apex:column>
+            </apex:pageBlockTable>
+            <br/>
+        </apex:pageBlock>
+        <apex:panelGrid columns="2">
+            <apex:commandLink action="{!previous}">Previous</apex:commandLink>
+            <apex:commandLink action="{!next}">Next Click Here</apex:commandLink>
+        </apex:panelGrid>
+    </apex:form>
+</apex:page>
